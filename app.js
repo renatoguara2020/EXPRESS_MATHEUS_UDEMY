@@ -3,11 +3,14 @@ const express = require('express');
 
 const app = express();
 const port = 3000;
+const path = require('path');
+
+const basePath = path.join(__dirname, 'template')
 
 
 app.get('/', (req, res) => {
 
-    res.send(`<h1>Olá mundo com express na porta: ${port}</h1>`)
+    res.sendFile(`${basePath}/index.html`) // interpolação com ``
 })
 
 app.listen(port, () => {
